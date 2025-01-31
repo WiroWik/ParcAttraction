@@ -8,7 +8,7 @@ Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDYzOTQ3OT
   "nom": "Dupont",
   "prenom": "Jean",
   "note": 5,
-  "commentaire": "Superbe restaurant",
+  "commentaire": "Ouais bof",
   "attraction_id": 1
 }
 

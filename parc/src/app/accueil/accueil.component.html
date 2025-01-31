@@ -11,12 +11,18 @@
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async;">
-      <div class="attraction" *ngIf="attraction.visible">
-        <span>{{attraction.nom}}</span>
-        <span>{{attraction.description}}</span>
-        <span>{{attraction.difficulte}} / 5</span>
-        <div>
-          rien
+      <div *ngIf="attraction.visible">
+        <div class="attraction">
+          <span>{{attraction.nom}}</span>
+          <span>{{attraction.description}}</span>
+          <span>{{attraction.difficulte}} / 5</span>
+        </div>
+        <div class="avis">
+          <span>Avis des visiteurs</span>
+          <div *ngFor="let avis of avis | async;">
+            <span>{{avis.note}} / 5</span>
+            <span>{{avis.commentaire}}</span>
+          </div>
         </div>
       </div>
     </ng-container>

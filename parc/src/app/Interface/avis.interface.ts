@@ -1,4 +1,4 @@
-export interface AttractionInterface {
+export interface AvisInterface {
   avis_id: number,
   nom: string | null,
   prenom: string | null,
