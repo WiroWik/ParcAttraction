@@ -1,0 +1,14 @@
+POST http://127.0.0.1:5000/avis HTTP/1.1
+Content-Type: application/json
+Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDYzOTQ3OTYsImlhdCI6MTcwNjMwODM5Niwic3ViIjoxfQ.aLTZKPZE0cYRW1lCTMg9lglDxdO0NHEAmD1RFkCL7Hk
+
+
+{
+  "avis_id": 1,
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "note": 5,
+  "commentaire": "Superbe restaurant",
+  "attraction_id": 1
+}
+
