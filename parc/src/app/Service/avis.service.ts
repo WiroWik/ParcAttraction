@@ -25,14 +25,8 @@ export class AvisService {
     return data as Observable<AvisInterface[]>;
   }
 
-  public postAttraction(avis: AvisInterface): Observable<MessageInterface> {
-    const url = "http://127.0.0.1:5000/avis";
-    const data = this.dataService.postData(url, avis);
-    return data as Observable<MessageInterface>;
-  }
-
-  public addAvis(attractionId: number, avis: AvisInterface): Observable<MessageInterface> {
-    const url = `http://127.0.0.1:5000/avis/attraction/${attractionId}`;
+  public addAvis(avis: AvisInterface): Observable<MessageInterface> {
+    const url = `http://127.0.0.1:5000/avis`;
     return this.dataService.postData(url, avis) as Observable<MessageInterface>;
   }
 }

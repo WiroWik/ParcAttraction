@@ -56,12 +56,15 @@ def deleteAttraction(index):
 @app.post('/avis')
 def addAvis():
     print("okok", flush=True)
+    """
     # Fonction vérif token
     checkToken = user.check_token(request)
     if (checkToken != True):
         return checkToken
+    """
 
     json = request.get_json()
+    
     retour = avis.add_avis(json)
     if (retour):
         return jsonify({"message": "Element ajouté.", "result": retour}), 200

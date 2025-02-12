@@ -17,3 +17,18 @@
     width: 250px;
   }
 }
+
+.avis-content {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    padding: 5px;
+    width: 250px;
+    background-color: lightgrey;
+  }
+
+  span:nth-child(1) {
+    background-color: darkgrey;
+  }
+}

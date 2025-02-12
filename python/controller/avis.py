@@ -4,7 +4,7 @@ def add_avis(data):
     print(data, flush=True)
 
     if (not "nom" in data or data["nom"] == ""):
-        data["nom"] = ""
+        data["nom"] = "Anonyme"
     
     if (not "prenom" in data or data["prenom"] == ""):
         data["prenom"] = ""
@@ -14,14 +14,17 @@ def add_avis(data):
     
     if (not "commentaire" in data or data["commentaire"] == ""):
         return False
+    
+    if (not "attraction_id" in data or data["attraction_id"] == ""):
+        return False
 
     if ("avis_id" in data and data["avis_id"]):
-      requete = f"UPDATE avis SET nom='{data['nom']}', prenom='{data['prenom']}', note={data['note']}, commentaire='{data['commentaire']}' WHERE avis_id = {data['avis_id']}"
+      requete = f"UPDATE avis SET nom='{data['nom']}', prenom='{data['prenom']}', note={data['note']}, commentaire='{data['commentaire']}', attraction_id='{data['attraction_id']}' WHERE avis_id = {data['avis_id']}"
       req.insert_in_db(requete)
       id = data['avis_id']
     else:
-      requete = "INSERT INTO avis (nom, prenom, note, commentaire) VALUES (?, ?, ?, ?);"
-      id = req.insert_in_db(requete, (data["nom"], data["description"], data["difficulte"], data["visible"]))
+      requete = "INSERT INTO avis (nom, prenom, note, commentaire, attraction_id) VALUES (?, ?, ?, ?, ?);"
+      id = req.insert_in_db(requete, (data["nom"], data["prenom"], data["note"], data["commentaire"], data["attraction_id"]))
 
     return id
 

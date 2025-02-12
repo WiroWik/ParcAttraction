@@ -51,10 +51,10 @@ export class AccueilComponent {
 
   onSubmit(index: number): void {
     const avisForm = this.formulaireAvis[index];
+    console.log("formulaire avis");
     if (avisForm.valid) {
       const newAvis: AvisInterface = avisForm.value;
-      const attractionId = avisForm.get('attraction_id')?.value;
-      this.avisService.addAvis(attractionId, newAvis).subscribe(() => {
+      this.avisService.addAvis(newAvis).subscribe(() => {
         console.log('Avis added successfully');
       });
     } else {
