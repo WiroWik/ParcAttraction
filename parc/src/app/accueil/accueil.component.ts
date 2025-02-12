@@ -29,7 +29,6 @@ export class AccueilComponent {
   constructor(public attractionService: AttractionService, public avisService: AvisService)
   {}
   
-  
   public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttraction().pipe(tap((attractions:AttractionInterface[]) => {
     attractions.forEach(attraction => {
       this.formulaireAvis.push(
