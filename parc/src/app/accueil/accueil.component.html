@@ -19,10 +19,34 @@
         </div>
         <div class="avis">
           <span>Avis des visiteurs</span>
-          <div *ngFor="let avis of avis | async;">
-            <span>{{avis.note}} / 5</span>
-            <span>{{avis.commentaire}}</span>
-          </div>
+          <ng-container *ngFor="let formulaireAvis of formulaireAvis; let indexForm = index;"
+            [formGroup]="formulaireAvis"
+            style="display: flex; flex-direction: column;"
+          >
+            <div class="avis">
+                <mat-form-field class="champ" appearance="fill">
+                  <mat-label>Nom</mat-label>
+                  <input matInput formControlName="nom" type="text">
+                </mat-form-field>
+
+                <mat-form-field class="champ" appearance="fill">
+                  <mat-label>Prénom</mat-label>
+                  <input matInput formControlName="prenom" type="text">
+                </mat-form-field>
+
+                <mat-form-field class="champ" appearance="fill">
+                  <mat-label>Note / 5</mat-label>
+                  <input matInput formControlName="note" type="number">
+                </mat-form-field>
+
+                <mat-form-field class="champ" appearance="fill">
+                  <mat-label>Commentaire</mat-label>
+                  <textarea matInput formControlName="commentaire"></textarea>
+                </mat-form-field>
+
+                <button mat-button (click)="onSubmit(indexForm)" class="champ">Enregistrer</button>
+            </div>
+          </ng-container>
         </div>
       </div>
     </ng-container>

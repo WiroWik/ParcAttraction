@@ -77,6 +77,11 @@ def getAvis(index):
     result = avis.get_avis(index)
     return result, 200
 
+@app.get('/avis/attraction/<int:index>')
+def getAllAvisByAttraction(index):
+    result = avis.get_all_avis_by_attraction(index)
+    return result, 200
+
 @app.delete('/avis/<int:index>')
 def deleteAvis(index):
 

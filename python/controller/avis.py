@@ -30,6 +30,17 @@ def get_all_avis():
     
     return json
 
+def get_all_avis_by_attraction(id):
+    if (not id):
+        return False
+
+    json = req.select_from_db("SELECT * FROM avis WHERE attraction_id = ?", (id,))
+
+    if len(json) > 0:
+        return json
+    else:
+        return []
+
 def get_avis(id):
     if (not id):
         return False
