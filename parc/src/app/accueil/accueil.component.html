@@ -11,45 +11,45 @@
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async; let indexForm = index;" [formGroup]="formulaireAvis[indexForm]">
-      <div *ngIf="attraction.visible">
-        <div class="attraction">
+      <div class="attraction-card">
+        <div class="attraction" *ngIf="attraction.visible">
           <span>{{attraction.nom}}</span>
           <span>{{attraction.description}}</span>
           <span>{{attraction.difficulte}} / 5</span>
-        </div>
-        <span>Avis des visiteurs</span>
-        <div class="avis-form">
-            <span>{{indexForm}}</span>
-            <mat-form-field class="champ" appearance="fill">
-              <mat-label>Nom</mat-label>
-              <input matInput formControlName="nom" type="text">
-            </mat-form-field>
-
-            <mat-form-field class="champ" appearance="fill">
-              <mat-label>Prénom</mat-label>
-              <input matInput formControlName="prenom" type="text">
-            </mat-form-field>
-
-            <mat-form-field class="champ" appearance="fill">
-              <mat-label>Note / 5</mat-label>
-              <input matInput formControlName="note" type="number">
-            </mat-form-field>
-
-            <mat-form-field class="champ" appearance="fill">
-              <mat-label>Commentaire</mat-label>
-              <textarea matInput formControlName="commentaire"></textarea>
-            </mat-form-field>
-
-            <button mat-button (click)="onSubmit(indexForm)" class="champ">Enregistrer</button>
+          
         </div>
         <div class="avis">
-          <ng-container *ngFor="let avisItem of avis | async">
-            <div class="avis-content" *ngIf="avisItem.attraction_id === attraction.attraction_id">
-              <span>{{avisItem.nom}} {{avisItem.prenom}}</span>
-              <span>{{avisItem.note}} / 5</span>
-              <span>{{avisItem.commentaire}}</span>
+          <span>Avis des visiteurs</span>
+          <div class="avis-content">
+            <div class="avis-form">
+              <mat-form-field class="champ" appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="nom" type="text">
+              </mat-form-field>
+              <mat-form-field class="champ" appearance="fill">
+                <mat-label>Prénom</mat-label>
+                <input matInput formControlName="prenom" type="text">
+              </mat-form-field>
+              <mat-form-field class="champ" appearance="fill">
+                <mat-label>Note / 5</mat-label>
+                <input matInput formControlName="note" type="number">
+              </mat-form-field>
+              <mat-form-field class="champ" appearance="fill">
+                <mat-label>Commentaire</mat-label>
+                <textarea matInput formControlName="commentaire"></textarea>
+              </mat-form-field>
+              <button mat-button (click)="onSubmit(indexForm)" class="champ">Enregistrer</button>
             </div>
-          </ng-container>
+            <div class="avis-list">
+              <ng-container *ngFor="let avisItem of avis | async">
+                <div class="avis-card" *ngIf="avisItem.attraction_id === attraction.attraction_id">
+                  <span>{{avisItem.nom}} {{avisItem.prenom}}</span>
+                  <span>{{avisItem.note}} / 5</span>
+                  <span>{{avisItem.commentaire}}</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
         </div>
       </div>
     </ng-container>

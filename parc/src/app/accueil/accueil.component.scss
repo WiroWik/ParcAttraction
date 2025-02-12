@@ -11,10 +11,55 @@
   column-gap: 25px;
   width: fit-content;
 
-  border-bottom: solid 1px grey;
+  
   span {
     padding: 5px;
     width: 250px;
+  }
+}
+
+.attraction-card {
+  padding: 5px;
+  border-bottom: solid 1px grey;
+  width: 100%;
+}
+
+.avis {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .avis-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .avis-form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 10px;
+    background-color: lightgrey;
+
+    button {
+      background-color: grey;
+    }
+  }
+
+  .avis-list {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 10px;
+    background-color: lightgrey;
+    overflow-y: auto;
+
+    .avis-card {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      border-bottom: solid 1px grey;
+    }
   }
 }
 
