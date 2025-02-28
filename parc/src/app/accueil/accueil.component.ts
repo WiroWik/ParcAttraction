@@ -55,6 +55,7 @@ export class AccueilComponent {
       const newAvis: AvisInterface = avisForm.value;
       this.avisService.addAvis(newAvis).subscribe(() => {
         console.log('Avis added successfully');
+        this.avis = this.avisService.getAllAvis();
       });
     } else {
       console.log('Form is invalid');
